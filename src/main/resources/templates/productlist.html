@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>productlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Students</h1>
+    <table>
+		<tr>
+		    <th>Name</th>
+		    <th>Price</th>
+		    <th>Description</th>
+		     <th>Calories</th>
+		      <th>Location</th>
+		       <th>Market</th>
+		       <th>Type</th>
+		        <th></th>
+		         <th></th>
+		</tr>  
+    <tr th:each="meal:${food}">
+    <td th:text="${meal.name}"></td>
+    <td th:text="${meal.price}"></td>
+    <td th:text="${meal.description}"></td>
+    <td th:text="${meal.calories}"></td>
+    <td th:text="${meal.marketlocation}"></td>
+    <td th:text="${meal.market.marketName}"></td>
+    <td th:text="${meal.type.typeName}"></td>
+    <td><a th:href="@{/delete/{id}(id=${meal.id})}" class="btn btn-danger">Delete</a></td>
+    <td><a th:href="@{/edit/{id}(id=${meal.id})}" class="btn btn-danger">Edit</a></td>
+    <td><a th:href="" class="btn btn-primary">Add to Shopping list</a></td>
+    </tr>
+     </table>
+ 	<a href="/Add"  class="btn btn-success">AddProduct</a>
+</body>
+</html>
